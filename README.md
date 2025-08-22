@@ -1,0 +1,167 @@
+# ZX Spectrum Development Environment Template
+
+A VS Code devcontainer template for ZX Spectrum programming using Boriel Basic compiler and Z80 assembly tools, optimized for Apple Silicon Mac hosts.
+
+## Features
+
+- **Boriel Basic Compiler**: Pre-installed ZX Basic compiler for creating ZX Spectrum programs
+- **Z80 Assembly Support**: SjASMPlus and z80asm assemblers for low-level programming
+- **ARM64 Compatible**: Optimized for Apple Silicon Mac hosts
+- **VS Code Integration**: Configured with syntax highlighting and build tasks
+- **Sample Projects**: Includes example programs demonstrating graphics, sound, and basic functionality in both BASIC and assembly
+- **Build Scripts**: Ready-to-use compilation scripts and Makefile for both languages
+
+## Quick Start
+
+1. **Open in VS Code**: Open this folder in VS Code
+2. **Reopen in Container**: When prompted, click "Reopen in Container" or use `Ctrl+Shift+P` → "Dev Containers: Reopen in Container"
+3. **Wait for Setup**: The container will build automatically (first time may take a few minutes)
+4. **Start Coding**: Edit `.bas` files in the `src/` directory or `.asm` files in the `src/asm/` directory
+
+## Project Structure
+
+```
+├── .devcontainer/          # Dev container configuration
+│   ├── devcontainer.json   # VS Code devcontainer settings
+│   └── Dockerfile          # Container setup with Boriel Basic
+├── .vscode/                # VS Code workspace settings
+│   ├── extensions.json     # Recommended extensions
+│   └── settings.json       # File associations and runner config
+├── src/                    # Your ZX Spectrum source files
+│   ├── hello.bas          # Sample BASIC hello world program
+│   └── asm/               # Z80 Assembly source files
+│       └── hello.asm      # Sample assembly hello world program
+├── examples/               # Example programs
+│   ├── graphics.bas       # BASIC graphics demonstration
+│   ├── sound.bas          # BASIC sound/beeper demonstration
+│   └── asm/               # Assembly example programs
+│       ├── graphics.asm   # Assembly graphics demonstration
+│       └── sound.asm      # Assembly sound demonstration
+├── build.sh               # Build script
+├── Makefile              # Make-based build system
+└── README.md             # This file
+```
+
+## Building Programs
+
+### Using the Build Script
+```bash
+./build.sh
+```
+
+### Using Make
+```bash
+make build          # Build all BASIC files in src/
+make build-asm      # Build all assembly files in src/asm/
+make examples       # Build all BASIC example files
+make examples-asm   # Build all assembly example files
+make all            # Build all BASIC and assembly files (default)
+make clean          # Clean build artifacts
+make help           # Show available targets
+```
+
+### Manual Compilation
+
+#### BASIC Files
+```bash
+# Compile to TAP format (ZX Spectrum tape)
+zxbc src/hello.bas -o build/hello.tap
+
+# Compile to binary
+zxbc src/hello.bas -o build/hello.bin
+```
+
+#### Assembly Files
+```bash
+# Using SjASMPlus (recommended)
+sjasmplus --raw=build/hello.bin src/asm/hello.asm
+
+# Using z80asm (alternative)
+z80asm -o build/hello.bin src/asm/hello.asm
+```
+
+## Output Formats
+
+### BASIC Programs
+- **TAP files**: ZX Spectrum tape format, can be loaded into emulators
+- **BIN files**: Raw binary format
+
+### Assembly Programs
+- **BIN files**: Raw binary format that can be loaded into memory at the specified ORG address
+
+## Language Features
+
+### ZX Spectrum BASIC (Boriel Basic)
+- Standard ZX Spectrum Basic commands (`PRINT`, `INPUT`, `FOR/NEXT`, etc.)
+- Graphics commands (`PLOT`, `DRAW`, `CIRCLE`)
+- Sound commands (`BEEP`, `PLAY`)
+- Advanced features like functions, arrays, and structured programming
+- Inline assembly for performance-critical sections
+
+### Z80 Assembly
+- Full Z80 instruction set
+- ZX Spectrum ROM routine access
+- Memory-mapped I/O programming
+- Direct hardware control
+- Optimized performance for games and demos
+
+## Example Programs
+
+### BASIC Examples
+- **Hello World** (`src/hello.bas`) - Simple program demonstrating basic text output and user interaction
+- **Graphics Demo** (`examples/graphics.bas`) - Shows basic graphics capabilities including line drawing and plotting
+- **Sound Demo** (`examples/sound.bas`) - Demonstrates the ZX Spectrum's beeper sound capabilities
+
+### Assembly Examples
+- **Graphics Demo** (`examples/asm/graphics.asm`) - Low-level graphics programming with pixel plotting and line drawing
+- **Sound Demo** (`examples/asm/sound.asm`) - Direct beeper control and simple music generation
+
+## Running on ZX Spectrum
+
+### BASIC Programs
+The compiled `.tap` files can be loaded into:
+- **Emulators**: FUSE, SpectEmu, ZEsarUX, etc.
+- **Real Hardware**: Using tape interfaces or modern solutions like DivMMC
+
+### Assembly Programs
+The compiled `.bin` files can be loaded using:
+- **BASIC LOAD command**: `LOAD "filename" CODE 32768` (adjust address as needed)
+- **Emulator memory loading**: Direct memory loading at the ORG address
+- **Real Hardware**: Using modern solutions like DivMMC, +3DOS, or custom loaders
+
+## Troubleshooting
+
+### Container Build Issues
+- Ensure Docker Desktop is running
+- Try rebuilding the container: `Ctrl+Shift+P` → "Dev Containers: Rebuild Container"
+
+### Compilation Errors
+
+#### BASIC
+- Check syntax against ZX Spectrum Basic reference
+- Verify file encoding (should be UTF-8)
+- Use `zxbc --help` for compiler options
+
+#### Assembly
+- Check Z80 instruction syntax
+- Verify ORG addresses don't conflict with ROM or system areas
+- Use `sjasmplus --help` or `z80asm --help` for assembler options
+
+## Resources
+
+### BASIC Programming
+- [Boriel Basic Documentation](https://zxbasic.readthedocs.io/)
+- [ZX Spectrum Programming Guide](https://worldofspectrum.org/ZXSpectrum128Manual/)
+
+### Assembly Programming
+- [SjASMPlus Documentation](https://github.com/z00m128/sjasmplus/wiki)
+- [Z80 Instruction Set Reference](https://clrhome.org/table/)
+- [ZX Spectrum ROM Disassembly](https://skoolkid.github.io/rom/)
+- [ZX Spectrum Memory Map](https://worldofspectrum.org/faq/reference/48kreference.htm)
+
+### Development Environment
+- [VS Code Dev Containers](https://code.visualstudio.com/docs/remote/containers)
+
+## Contributing
+
+This template is designed to be customized for your specific ZX Spectrum development needs. Feel free to modify the configuration, add new tools, or extend the examples. Both BASIC and assembly programming workflows are supported.

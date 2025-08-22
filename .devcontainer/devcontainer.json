@@ -1,0 +1,30 @@
+{
+	"name": "ZX Spectrum Basic Development",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": ".."
+	},
+	"features": {},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.vscode-json",
+				"yzhang.markdown-all-in-one",
+				"formulahendry.code-runner",
+				"ms-vscode.hexeditor"
+			],
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "bash",
+				"files.associations": {
+					"*.bas": "basic",
+					"*.BAS": "basic"
+				}
+			}
+		}
+	},
+	"postCreateCommand": "echo 'ZX Spectrum Basic development environment ready!'",
+	"remoteUser": "vscode",
+	"mounts": [
+		"source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+	]
+}

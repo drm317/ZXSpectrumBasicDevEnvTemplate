@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "*.bas": "basic",
+        "*.BAS": "basic",
+        "*.asm": "asm-intel-x86-generic",
+        "*.ASM": "asm-intel-x86-generic"
+    },
+    "code-runner.executorMap": {
+        "basic": "cd $dir && zxbc $fileName -o $fileNameWithoutExt.tap",
+        "asm-intel-x86-generic": "cd $dir && mkdir -p ../../../build/asm && (sjasmplus --raw=../../../build/asm/$fileNameWithoutExt.bin $fileName || z80asm -o ../../../build/asm/$fileNameWithoutExt.bin $fileName)"
+    },
+    "code-runner.runInTerminal": true,
+    "code-runner.saveFileBeforeRun": true
+}
