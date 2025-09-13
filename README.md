@@ -89,22 +89,6 @@ z80asm -o build/hello.bin src/asm/hello.asm
 ### Assembly Programs
 - **BIN files**: Raw binary format that can be loaded into memory at the specified ORG address
 
-## Language Features
-
-### ZX Spectrum BASIC (Boriel Basic)
-- Standard ZX Spectrum Basic commands (`PRINT`, `INPUT`, `FOR/NEXT`, etc.)
-- Graphics commands (`PLOT`, `DRAW`, `CIRCLE`)
-- Sound commands (`BEEP`, `PLAY`)
-- Advanced features like functions, arrays, and structured programming
-- Inline assembly for performance-critical sections
-
-### Z80 Assembly
-- Full Z80 instruction set
-- ZX Spectrum ROM routine access
-- Memory-mapped I/O programming
-- Direct hardware control
-- Optimized performance for games and demos
-
 ## Example Programs
 
 ### BASIC Examples
@@ -128,40 +112,3 @@ The compiled `.bin` files can be loaded using:
 - **BASIC LOAD command**: `LOAD "filename" CODE 32768` (adjust address as needed)
 - **Emulator memory loading**: Direct memory loading at the ORG address
 - **Real Hardware**: Using modern solutions like DivMMC, +3DOS, or custom loaders
-
-## Troubleshooting
-
-### Container Build Issues
-- Ensure Docker Desktop is running
-- Try rebuilding the container: `Ctrl+Shift+P` → "Dev Containers: Rebuild Container"
-
-### Compilation Errors
-
-#### BASIC
-- Check syntax against ZX Spectrum Basic reference
-- Verify file encoding (should be UTF-8)
-- Use `zxbc --help` for compiler options
-
-#### Assembly
-- Check Z80 instruction syntax
-- Verify ORG addresses don't conflict with ROM or system areas
-- Use `sjasmplus --help` or `z80asm --help` for assembler options
-
-## Resources
-
-### BASIC Programming
-- [Boriel Basic Documentation](https://zxbasic.readthedocs.io/)
-- [ZX Spectrum Programming Guide](https://worldofspectrum.org/ZXSpectrum128Manual/)
-
-### Assembly Programming
-- [SjASMPlus Documentation](https://github.com/z00m128/sjasmplus/wiki)
-- [Z80 Instruction Set Reference](https://clrhome.org/table/)
-- [ZX Spectrum ROM Disassembly](https://skoolkid.github.io/rom/)
-- [ZX Spectrum Memory Map](https://worldofspectrum.org/faq/reference/48kreference.htm)
-
-### Development Environment
-- [VS Code Dev Containers](https://code.visualstudio.com/docs/remote/containers)
-
-## Contributing
-
-This template is designed to be customized for your specific ZX Spectrum development needs. Feel free to modify the configuration, add new tools, or extend the examples. Both BASIC and assembly programming workflows are supported.
