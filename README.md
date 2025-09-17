@@ -1,6 +1,6 @@
 # ZX Spectrum Development Environment Template
 
-A VS Code devcontainer template for ZX Spectrum programming using Boriel Basic compiler and Z80 assembly tools, optimized for Apple Silicon Mac hosts.
+A VS Code devcontainer template for ZX Spectrum programming using the Boriel Basic compiler and the Z80 SjASMPlus assembler.
 
 ## Features
 
