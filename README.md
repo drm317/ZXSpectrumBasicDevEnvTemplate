@@ -6,7 +6,6 @@ A VS Code devcontainer template for ZX Spectrum programming using the Boriel Bas
 
 - **Boriel Basic Compiler**: Pre-installed ZX Basic compiler for creating ZX Spectrum programs
 - **Z80 Assembly Support**: SjASMPlus and z80asm assemblers for low-level programming
-- **ARM64 Compatible**: Optimized for Apple Silicon Mac hosts
 - **VS Code Integration**: Configured with syntax highlighting and build tasks
 - **Sample Projects**: Includes example programs demonstrating graphics, sound, and basic functionality in both BASIC and assembly
 - **Build Scripts**: Ready-to-use compilation scripts and Makefile for both languages
